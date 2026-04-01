@@ -22,8 +22,5 @@ RUN composer install --no-dev --optimize-autoloader
 # Expose port
 EXPOSE 10000
 
-# Run migrations during build
-RUN php artisan migrate --force
-
-# Start Laravel
-CMD php artisan serve --host=0.0.0.0 --port=10000
+# Run migrations at container startup, then serve Laravel
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=10000
