@@ -16,6 +16,7 @@ return new class extends Migration
         $table->string('type'); // Float_Out or Float_In
         $table->decimal('amount', 10, 2);
         $table->string('description')->nullable();
+        $table->date('date')->nullable();
         $table->timestamps();
     });
 }
